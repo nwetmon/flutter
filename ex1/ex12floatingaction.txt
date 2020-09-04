@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    String name = "Flutter";
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text("Flutter"),
+            ),
+            body: Center(
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                  Image.network(
+                      "https://i.ytimg.com/vi/fechyo4W53s/maxresdefault.jpg")
+                ]))));
+  }
+}
+
+class FABWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text("Flutter"),
+            ),
+            floatingActionButton: FABWidget(),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.endDocked,
+            body: Center(
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                  Image.network(
+                      "https://i.ytimg.com/vi/fechyo4W53s/maxresdefault.jpg")
+                ]))));
+  }
+}
+
+class BlueBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 50,
+        height: 50,
+        decoration:
+            BoxDecoration(color: Colors.blueGrey, border: Border.all()));
+  }
+}
+
+class TextWidgetOne extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text("Hello ", style: TextStyle(fontSize: 20));
+  }
+}
+
+class TextWidgetTwo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text("Flutter ", style: TextStyle(fontSize: 40));
+  }
+}

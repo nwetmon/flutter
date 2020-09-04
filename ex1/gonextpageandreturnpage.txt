@@ -1,0 +1,103 @@
+import 'package:flutter/material.dart';
+
+
+final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MaterialApp(
+    routes:{
+      '/':(context) => FirstScreen(),
+      '/second':(context) => SecondScreen()
+      },
+  
+  ));
+}
+
+class FirstPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Nav"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => SecondPage()));
+          },
+          child: Text("Go to second page"),
+        ),
+      ),
+    );
+  }
+}
+
+// Route _createRoute(){
+//   return PageRouteBuilder(
+//     pageBuilder: (context,animation,secondAnimation) => SecondPage(),
+//     transitionsBuilder: (context,animation,secondAnimation,child){
+
+//       return child;
+//     }
+//   );
+// }
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Page"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text("Back"),
+        ),
+      ),
+    );
+  }
+}
+
+class FirstScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("First Screen"),
+        
+      ),
+      body: RaisedButton(onPressed: (){
+        
+        Navigator.pushNamed(context,'/second');
+      },
+      child:Text("Launch screen"),),
+                        
+       
+    );
+  }
+  
+}
+  class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Screen"),
+        
+      ),
+      body: Center(child: RaisedButton(
+        onPressed: (){
+          Navigator.pop(context);
+        },
+        child:Text("Back"),
+      
+      ),),
+                        
+       
+    );
+  }
+}
